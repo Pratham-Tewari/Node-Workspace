@@ -1,0 +1,33 @@
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+if(navigator.geolocation)
+{
+    navigator.geolocation.getCurrentPosition(function (p)
+    {
+      var LatLang= new google.maps.LatLang(p.coords.latitude,p.coords.longitude);
+      var mapoptions=
+      {
+        center:LatLang,
+        zoom:15,
+        mapTypeId:google.maps.mapTypeId.ROADMAP
+      };
+      var map=new google.maps.Map(document.getElementById("mapid"),mapoptions);
+      var marker=new google.maps.Marker(
+          {
+           position:LatLang,
+           map:map,
+           title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
+          });
+          google.maps.event.addListener(marker,"click",function(e)
+          {
+              var infoWindow=new google.maps.InfoWindow();
+              infoWindow.setContent(marker.title);
+              infoWindow.open(map,marker);
+          });
+    });
+}
+else{
+    alert("GEOLOACTION IS NOT AVAIABLE");
+}
+</script>
+<div id="mapid" style="width: 500px; height: 500px;"></div>

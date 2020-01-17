@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>GET OUR CURRENT LOCATION</title>
+    </head>
+    <body>
+        <p id="demo">CLICK ON BUTTON TO GET OUR CURRENT LOCATION</p>
+        <input type="button" value="CLCK ME" onclick="getLocation()">
+        <script>
+                var x=document.getElementById("demo");
+                function getLocation()
+            {
+                if(navigator.geolocation)
+                {
+                    navigator.geolocation.getCurrentPosition(showPosition,showError);
+                }
+                else
+                {
+                    x.innerHTML="Geoloaction is not supported";
+                }
+            }//getlocation()
+            function showPosition(position)
+            {
+                x.innerHTML="LATITUDE : " +position.coords.latitude + "<br>LONGITUDE : " +position.coords.longitude;
+            }//showposition()
+            function showError(error)
+            {
+                switch(error.code)
+                {
+                    case error.PERMISSION_DENIED:
+                        x.innerHTML="Permission is denied";
+                        break;
+                    case error.TIMEOUT:
+                        x.innerHTML="TIME IS OUT. PLEASE TRY AGAIN";
+                     case error.UNKNOWN_ERROR: 
+                     x.innerHTML="UNKNOWN ERROR IS OCURRED";   
+                }//SWITCH()
+            }//showrror()
+            
+            </script>
+    </body>
+</html>

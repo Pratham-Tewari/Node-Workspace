@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>
+      Event in Socket.io
+    </title>
+</head>
+<script src="/socket.io/socket.io2.js"></script>
+<script>
+    var socket = io();
+    socket.on('broadcast',function(data)
+    {
+        document.body.innerHTML='';
+        document.write(data.description);
+    });
+</script>
+<body>
+    <h1>HI USERS</h1>
+</body>
+</html>

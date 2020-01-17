@@ -1,0 +1,18 @@
+{
+   "user1" : { 
+               "name":"Pratham Tewari",
+               "age":"19",
+               "profession":"software Engineer"
+              },
+   "user2" : { 
+                "name":"Kushal Gupta",
+                "age":"21",
+                "profession":"software Engineer"
+               },
+   "user3" : { 
+                "name":"Sandeep Chauhan",
+                "age":"19",
+                "profession":"IT Team Mamber"
+            }          
+
+}
